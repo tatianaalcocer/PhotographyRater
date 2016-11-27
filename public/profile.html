@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>Photography Rating App</title>
     <!-- jQuery -->
@@ -23,14 +22,11 @@
     <!-- JQuery Web Pop-over -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
     <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
-
     <!-- JS files -->
     <script src="../app/app.js"></script>     
     </head>
 <body>
-
 <!-- ===============================NAV===================================== -->
-  
   <nav class="nav-extended teal accent-2">
     <div class="nav-wrapper teal accent-2" id="navbar">
       <a id="home" href="index.html" class="brand-logo"><img src="img/colormelogo.svg"></a>
@@ -55,66 +51,90 @@
 
  <!--  <div id="profile" class="col s12">My Profile</div>
   <div id="settings" class=" active col s12">Settings</div> -->
-
-
-<div class="container-profile black" id="profile-display-top">
-  <div class="row">
-    <div class="col sm12 m6">
-      <h1 class="nameInner"></h1>
-      <div class="profileImage"></div>
-        <div class="pink-light"></div>
-        
-          <div id="profile-display"></div>
-        
-
-        <div id='profile'>
+  <div class="container-profile black" id="profile-display-top">
+    <div class="row">
+      <div class="col sm12 m6">
+        <h1 class="nameInner"></h1>
+        <div class="profileImage"></div>
+        <div id="profile-display"></div>
+          <div id='profile'>
             <p>Hi, this is the first tab.</p>
-        </div>
-        <div id='settings'>
+          </div>
+          <div id='settings'>
             <p>And this is the 3rd tab.</p>
-        </div>
+          </div>
+      </div>
     </div>
   </div>
-</div>
-
-
-
-
+  <!-- Parallax -->
   <div class="parallax-container">
     <div class="parallax"><img class="parallax-img" src="img/jellyfish.jpeg"></div>
   </div>
-
-      
+  
 <!-- =================================FOOTER================================== -->
   <!-- STICKY FOOTER -->
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Iris</h5>
-            <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus possimus optio dicta cumque harum! Blanditiis culpa obcaecati voluptatibus voluptatem tenetur aliquam quod est rerum in? Rem exercitationem officiis nisi, obcaecati?</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Developer GitHub</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Developer GitHub</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Developer GitHub</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Developer GitHub</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
+    <footer class="page-footer teal accent-2">
         <div class="container">
-          © 2016 Iris
-        <a class="grey-text text-lighten-4 right" href="#!">Project GitHub</a>
+          <div class="row">
+              <div class="col l6 s12">
+                <img src="img/colormelogo.svg">
+              <p class="grey-text text-lighten-4">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum corporis earum laboriosam atque nemo provident modi, repellendus voluptas perferendis. Quam impedit cupiditate hic recusandae sapiente facere deserunt animi error fuga.
+              </br>
+              </br>
+          All images sourced from <a href="www.pexel.com">Pexels</a>.
+                </p>
+              </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">team iris</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/tatianaalcocer">Tatiana Alcocer</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/taylorem2787">Taylor Emolo</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/kulini">Han Lee</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/ar07111">Allen Raymond</a></li>
+                </ul>
+              </div>
+          </div>
         </div>
+        <div class="footer-copyright color-window turquoise">
+          <div class="container">
+            2016 <b>color</b>me by iris
+            <a class="grey-text text-lighten-4 right" href="https://github.com/tatianaalcocer/PhotographyRater">Project GitHub</a>
+          </div>
         </div>
-      </div> <!-- container end -->
     </footer>
 
+<<<<<<< Updated upstream
 
+=======
+<!-- <script type="text/javascript" src="../app/app.js"></script>    
+<script type="text/javascript" src="../app/app2.js"></script> 
+<script type="text/javascript" src="../app/app3.js"></script>  -->
+<script>
+  
+window.onload = function(){
+  var userid = localStorage.getItem('userid');
+  console.log(userid);
+  var currentLocation = window.location.origin;
+  var URL = currentLocation + '/profile/' + userid;
+  console.log(URL);
+  // var URL = '/profile/' + userid;
+  $.get(URL, function(data, status){
+    console.log(status);
+    // renderProfile();
+
+    for (var i = 0; i < data.length; i++){
+      console.log(data[i].url);
+      var imgurl = data[i].url;
+      var img = $('<img>');
+      img.attr('src', imgurl);
+      $('#profile-display').append(img);
+    }
+  });
+}
+
+</script>
+>>>>>>> Stashed changes
 </body>
 
 <!-- App -->

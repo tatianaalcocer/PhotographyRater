@@ -3,7 +3,7 @@ $('#profile').on('click', function(){
 	alert('clicked');
 });
 
-function renderProfile(userid) {
+function renderProfile(userID) {
 		//Display a user's liked/saved photos
 		$('#profile-display').html('');
 	$('#profile').on('click', function(){

@@ -11,7 +11,6 @@ body {
 	box-sizing: border-box;
 }
 
-
 .parallax-img img {
 	position: absolute;
 	background-position: 50% 210px !important;
@@ -177,6 +176,10 @@ footer.page-footer {
 .webui-popover {
 	background-color: #fff;
     background-color: rgba(255,255,255,0.3);
+}
+
+li {
+	font-family: 'Amaranth', sans-serif;
 }
 
 /*==========================PROFILE.HTML=============================*/
