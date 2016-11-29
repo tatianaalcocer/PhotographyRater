@@ -151,7 +151,20 @@ nav img {
 	background-size: 100% 100%;
 	position: absolute;
 	bottom: 2px;
-	right: 0;
+	right: 2px;
+	height: 15%;
+	width: 15%;
+	min-height: 20px;
+	min-width: 20px;
+	cursor: pointer;
+}
+
+.explore-image__overlay__downvote {
+	background-image: url("../img/downvote.svg"); 
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
 	height: 15%;
 	width: 15%;
 	min-height: 20px;
