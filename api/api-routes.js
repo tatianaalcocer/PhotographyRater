@@ -235,6 +235,24 @@ module.exports = function(app){
 	}
 
 
+	//Route to delete a photo from profile page
+	//=====================================================
+	app.post('/delete/:photoID/:userID', function(req, res){
+		var photoid = req.params.photoID;
+		var userid = req.params.userID;
+		var data = req.body;
+
+		deleteUserPhoto(userid, photoid);
+		res.send();
+	});
+
+	function deleteUserPhoto(userId, photoId){
+		var queryString = `DELETE FROM ` + userId + ` WHERE id=` + photoId + `;`;
+		connection.query(queryString, function(err, data){
+			console.log(data);
+		});
+	}
+
 	// //get route for the profile page
 	// app.get('/profile/:user', function(req, res){
 	// 	var user = req.params.user;
