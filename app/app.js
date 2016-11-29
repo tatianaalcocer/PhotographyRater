@@ -174,7 +174,7 @@ function updateUserColors(photoInfo){
 	
 	var currentLocation = window.location.origin;
 
-	var URL = currentLocation + '/updateUserColors/' + userID;
+	var URL = currentLocation + '/upvoteUserColors/' + userID;
 
 	$.post(URL, colorInfo, function(data){
 		console.log('data: ' + data);

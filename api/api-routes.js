@@ -7,7 +7,7 @@ var connection = require('../config/connection.js');
 var api = require('../api');
 
 module.exports = function(app){
-	//root get route. display api up to 1000 results
+	//Route to display mysql photo db. display result up to 1000 entries
 	app.get('/api', function(req,res) {
 		connection.query(`SELECT * FROM photos LIMIT 1000;`, function(err, data){
 			if (err) throw err;
@@ -47,7 +47,7 @@ module.exports = function(app){
 	//Route for upvoting a user's RGB/color profile
 	//this post route is called when a user clicks/upvotes a photo
 
-	app.post('/updateUserColors/:user', function(req, res){
+	app.post('/upvoteUserColors/:user', function(req, res){
 		var userid = req.params.user;
 		var data = req.body;
 		var dominant = req.body.dominant;
@@ -56,7 +56,7 @@ module.exports = function(app){
 
 		console.log('userid: ' + userid);
 
-		updateUserColors(dominant, userid);
+		upvoteUserColors(dominant, userid);
 		updateUserTable(userid, photoid, url);
 		res.send();
 	});
@@ -68,7 +68,7 @@ module.exports = function(app){
 	// //function to update a user's color value
 	// //this function is called when the user clicks on a photo
 	// //'color' parameter is the dominantHue of the clicked photo
-	function updateUserColors(color, userID){
+	function upvoteUserColors(color, userID){
 		var queryString; 
 
 		switch(color) {
