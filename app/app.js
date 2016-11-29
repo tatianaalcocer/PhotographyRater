@@ -160,7 +160,7 @@ function renderImages() {
 				if (userID) getLoggedUserColors(userID);
 				
 				//for users who aren't logged in, update user color profile, userRGB[]
-				if (!userID) changeUnloggedUserColors(dominant);
+				if (!userID) upvoteUnloggedUserColors(dominant);
 				//for users who aren't logged in, update color window
 				if (!userID) updateColorWindowUnlogged(unloggedRGB);
 			});
@@ -186,7 +186,7 @@ function renderImages() {
 				if (userID) getLoggedUserColors(userID);
 				
 				//for users who aren't logged in, update user color profile, userRGB[]
-				if (!userID) changeUnloggedUserColors(dominant);
+				if (!userID) downvoteUnloggedUserColors(dominant);
 				//for users who aren't logged in, update color window
 				if (!userID) updateColorWindowUnlogged(unloggedRGB);
 			});
@@ -210,6 +210,15 @@ function upvoteUserColors(photoInfo){
 	});
 }
 
+function downvoteUserColors(photoInfo){
+	var colorInfo = photoInfo;
+	var currentLocation = window.location.origin;
+	var URL = currentLocation + '/downvoteUserColors/' + userID;
+	$.post(URL, colorInfo, function(data){
+		console.log('data: ' + data);
+	});
+}
+
 //update color window/bar for users who are logged in
 function getLoggedUserColors(userid){
 	var currentLocation = window.location.origin;
@@ -228,7 +237,7 @@ function getLoggedUserColors(userid){
 }
 
 //update color window/bar for users who are not logged in
-function changeUnloggedUserColors(dominantColor){
+function upvoteUnloggedUserColors(dominantColor){
 
 	var dominant = dominantColor;
 	var userRed = unloggedRGB[0];
@@ -257,6 +266,40 @@ function changeUnloggedUserColors(dominantColor){
 		  if (userBlue <= 235) unloggedRGB[2] = unloggedRGB[2] + 20;
 		  if (userRed >= 10) unloggedRGB[0] = unloggedRGB[0] - 10;
 		  if (userGreen >= 10) unloggedRGB[1] = unloggedRGB[1] - 10;
+		  break;
+	}
+}
+
+
+function downvoteUnloggedUserColors(dominantColor){
+
+	var dominant = dominantColor;
+	var userRed = unloggedRGB[0];
+	var userGreen = unloggedRGB[1];
+	var userBlue = unloggedRGB[2];
+
+
+	console.log(userRed);
+	console.log(userGreen);
+	console.log(userBlue);
+
+	switch (dominant){
+		case 'red':
+		  if (userRed >= 10) unloggedRGB[0] = unloggedRGB[0] - 10;
+		  if (userGreen <= 250) unloggedRGB[1] = unloggedRGB[1] +5;
+		  if (userBlue <= 250) unloggedRGB[2] = unloggedRGB[2] +5;
+		  break;
+
+		case 'green':
+		  if (userGreen >= 10) unloggedRGB[1] = unloggedRGB[1] - 10;
+		  if (userRed <= 250) unloggedRGB[0] = unloggedRGB[0] + 5;
+		  if (userBlue <= 250) unloggedRGB[2] = unloggedRGB[2] + 5;
+		  break;
+
+		case 'blue':
+		  if (userBlue >= 10) unloggedRGB[2] = unloggedRGB[2] - 10;
+		  if (userRed <= 250) unloggedRGB[0] = unloggedRGB[0] + 5;
+		  if (userGreen <= 250) unloggedRGB[1] = unloggedRGB[1] + 5;
 		  break;
 	}
 }
