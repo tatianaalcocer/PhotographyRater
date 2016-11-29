@@ -143,10 +143,27 @@
       for (var i = 0; i < data.length; i++){
         // console.log(data[i].url);
         var imgurl = data[i].url;
+        var imgId = data[i].id;
+
+        // console.log(imgId);
+
         var img = $('<img>');
+        img.data('id', imgId);
+        img.addClass('profile-img');
         img.attr('src', imgurl);
         $('#profile-display').append(img);
       }
+      $('.profile-img').on('click', function(e) {
+        // console.log(e);
+        var id = $(this).data('id');
+        
+        console.log('id: '+ id);
+
+        var clickedImg = e.currentTarget;
+        // console.log(clickedImg.url);
+        // console.log(clickedImg.src);
+      
+      });
     });
 
 	var currentLocation = window.location.origin;
