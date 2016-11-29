@@ -210,7 +210,7 @@ module.exports = function(app){
 				queryString = 
 				`UPDATE allusers
 					SET blue = CASE
-					   WHEN blue >= THEN blue-10
+					   WHEN blue >= 10 THEN blue-10
 					   ELSE blue
 					END,
 						red = CASE
