@@ -44,7 +44,7 @@ module.exports = function(app){
 	});
 
 
-	//Route for updating a user's RGB/color profile
+	//Route for upvoting a user's RGB/color profile
 	//this post route is called when a user clicks/upvotes a photo
 
 	app.post('/updateUserColors/:user', function(req, res){
@@ -62,25 +62,15 @@ module.exports = function(app){
 	});
 
 
+
+	//Upvote route
+	//==========================================================
 	// //function to update a user's color value
 	// //this function is called when the user clicks on a photo
 	// //'color' parameter is the dominantHue of the clicked photo
 	function updateUserColors(color, userID){
 		var queryString; 
-		`UPDATE allusers
-			SET green = CASE
-			   WHEN green < 235 THEN green+20
-			   ELSE green
-			END,
-				red = CASE
-			    WHEN red >= 10 THEN red-10
-			    ELSE red
-			END,
-				blue = CASE
-			    WHEN blue >= 10 THEN blue-10
-			    ELSE blue
-			END
-		WHERE username=`
+
 		switch(color) {
 			case 'red':
 				queryString = 
@@ -155,6 +145,94 @@ module.exports = function(app){
 	}
 
 
+
+	//Downvote route
+	//=======================================
+
+	app.post('/downvoteUserColors/:user', function(req, res){
+		var userid = req.params.user;
+		var data = req.body;
+		var dominant = req.body.dominant;
+		var url = req.body.url;
+		var photoid = req.body.id;
+
+		console.log('userid: ' + userid);
+
+		downvoteUserColors(dominant, userid);
+		res.send();
+	});
+
+
+	// //function to update a user's color value
+	// //this function is called when the user downvotes a photo
+	// //'color' parameter is the dominantHue of the clicked photo
+	function downvoteUserColors(color, userID){
+		var queryString; 
+
+		switch(color) {
+			case 'red':
+				queryString = 
+				`UPDATE allusers
+					SET red = CASE
+					   WHEN red >= THEN red-10
+					   ELSE red
+					END,
+						green = CASE
+					    WHEN green <= 250 10 THEN green+5
+					    ELSE green
+					END,
+						blue = CASE
+					    WHEN blue <= 250 THEN blue+5
+					    ELSE blue
+					END
+				WHERE username=` + `'` + userID+ `';`;
+				break;
+
+			case 'green':
+				queryString = 
+				`UPDATE allusers
+					SET green = CASE
+					   WHEN green >=10 THEN green-10
+					   ELSE green
+					END,
+						red = CASE
+					    WHEN red <= 250 THEN red+5
+					    ELSE red
+					END,
+						blue = CASE
+					    WHEN blue <= 250 THEN blue+5
+					    ELSE blue
+					END
+				WHERE username=` + `'` + userID+ `';`;
+				break;
+
+			case 'blue':
+				queryString = 
+				`UPDATE allusers
+					SET blue = CASE
+					   WHEN blue >= THEN blue-10
+					   ELSE blue
+					END,
+						red = CASE
+					    WHEN red <= 250 THEN red+5
+					    ELSE red
+					END,
+						green = CASE
+					    WHEN green <= 250 THEN green+5
+					    ELSE green
+					END
+				WHERE username=` + `'` + userID+ `';`;
+				break;
+
+			case 'bw':
+				queryString = `UPDATE allusers SET bwCount=bwCount-1, downvotes=downvotes+1 WHERE username=` + `'` + userID+ `';`;
+		}
+
+		connection.query(queryString, function(err, data){
+			if (err) throw err;
+			console.log(data);
+		});
+	}
 
 
 	// //get route for the profile page
