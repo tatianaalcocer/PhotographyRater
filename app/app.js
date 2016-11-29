@@ -127,9 +127,11 @@ function renderImages() {
 			imgContainer.data('row', j);
 			var imgOverlay = $('<div class="explore-image__overlay">');
 			var imgUpvote = $('<div class="explore-image__overlay__upvote">');
+			var imgDownvote = $('<div class="explore-image__overlay__downvote">');
 			var img = $('<img />', {src : images[i][j].url});
 
 			imgOverlay.append(imgUpvote);
+			imgOverlay.append(imgDownvote);
 			imgContainer.append(img);
 			imgContainer.append(imgOverlay);
 
