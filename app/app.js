@@ -138,10 +138,14 @@ function renderImages() {
 			$('#explore-display').append(imgContainer);
 
 			imgUpvote.on('click', function(e) {
+				console.log(e);
+				// console.log(e.parentElement.firstChild.currentSrc);
+				// var img = $(event.target).hasClass('explore-image');
 				var img = e.currentTarget;
-				var row = $(img).data('row');
-				var col = $(img).data('col');
+				var row = $(img).parents('.explore-image').data('row');
+				var col = $(img).parents('.explore-image').data('col');
 				// console.log(app.images[col][row]);
+
 				var clickedImage = app.images[col][row];
 				var photoID = clickedImage.id;
 				
@@ -165,8 +169,9 @@ function renderImages() {
 
 			imgDownvote.on('click', function(e) {
 				var img = e.currentTarget;
-				var row = $(img).data('row');
-				var col = $(img).data('col');
+				// var row = $(img).data('row');
+				var row = $(img).parents('.explore-image').data('row');
+				var col = $(img).parents('.explore-image').data('col');
 				// console.log(app.images[col][row]);
 				var clickedImage = app.images[col][row];
 				var photoID = clickedImage.id;
@@ -194,13 +199,7 @@ function renderImages() {
 	return false;
 }
 
-function upvoteImage() {
-	imgUpvote.on('click', function(e) {
-
-	})
-}
-
-function updateUserColors(photoInfo){
+function upvoteUserColors(photoInfo){
 
 	var colorInfo = photoInfo;
 	
@@ -210,6 +209,7 @@ function updateUserColors(photoInfo){
 
 	$.post(URL, colorInfo, function(data){
 		console.log('data: ' + data);
+		// console.log('data red' + data[0].red);
 	});
 }
 
