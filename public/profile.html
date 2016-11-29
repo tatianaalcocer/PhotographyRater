@@ -157,14 +157,16 @@
 	var blue;
 	//AJAX call to obtain the user's color profile for the settings tab.
 	$.get(URL2, function(data, status){
-		console.log(data.red);
+		// console.log(data.red);
+		// console.log(data.green);
+		// console.log(data.blue);
 		red = data.red/255;
 		green = data.green/255;
 		blue = data.blue/255;
 		displayCanvas(red, green, blue);
 	});
 
-	function displayCanvas(r, b, g){
+	function displayCanvas(r, g, b){
 		var chart = new CanvasJS.Chart("settings", {
 		theme: "theme4",//theme1
 		backgroundColor: "white",
