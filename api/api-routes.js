@@ -30,10 +30,10 @@ module.exports = function(app){
 	//as evolving background color
 	//corresponding get route
 	app.get('/userRGB/:userid', function(req, res){
-		var rgbProfile ={};
 		var userid = req.params.userid;
 		var queryString = `SELECT * FROM allusers WHERE username=?;`;
 		connection.query(queryString, [userid], function(err, data){
+			var rgbProfile ={};
 			rgbProfile.red = data[0].red;
 			rgbProfile.green = data[0].green;
 			rgbProfile.blue = data[0].blue;
@@ -42,7 +42,6 @@ module.exports = function(app){
 			res.send(rgbProfile);
 		});	
 	});
-
 
 
 	//Route for updating a user's RGB/color profile
