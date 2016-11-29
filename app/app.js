@@ -137,7 +137,7 @@ function renderImages() {
 
 			$('#explore-display').append(imgContainer);
 
-			imgContainer.on('click', function(e) {
+			imgUpvote.on('click', function(e) {
 				var img = e.currentTarget;
 				var row = $(img).data('row');
 				var col = $(img).data('col');
@@ -149,11 +149,37 @@ function renderImages() {
 
 				getImages(photoID);
 
-				var dominant= clickedImage.dominant;
+				var dominant = clickedImage.dominant;
 				console.log('dominant: ' + dominant);
 
 				//for logged in users, update user color profile in mysql db
-				if (userID) updateUserColors(clickedImage);
+				if (userID) upvoteUserColors(clickedImage);
+				//for logged in users, update color window
+				if (userID) getLoggedUserColors(userID);
+				
+				//for users who aren't logged in, update user color profile, userRGB[]
+				if (!userID) changeUnloggedUserColors(dominant);
+				//for users who aren't logged in, update color window
+				if (!userID) updateColorWindowUnlogged(unloggedRGB);
+			});
+
+			imgDownvote.on('click', function(e) {
+				var img = e.currentTarget;
+				var row = $(img).data('row');
+				var col = $(img).data('col');
+				// console.log(app.images[col][row]);
+				var clickedImage = app.images[col][row];
+				var photoID = clickedImage.id;
+				
+				console.log(clickedImage);
+
+				getImages(photoID);
+
+				var dominant = clickedImage.dominant;
+				console.log('dominant: ' + dominant);
+
+				//for logged in users, update user color profile in mysql db
+				if (userID) downvoteUserColors(clickedImage);
 				//for logged in users, update color window
 				if (userID) getLoggedUserColors(userID);
 				
@@ -166,6 +192,12 @@ function renderImages() {
 	}
 	// console.log(app.images)
 	return false;
+}
+
+function upvoteImage() {
+	imgUpvote.on('click', function(e) {
+
+	})
 }
 
 function updateUserColors(photoInfo){
