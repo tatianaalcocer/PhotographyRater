@@ -138,9 +138,7 @@ function renderImages() {
 			$('#explore-display').append(imgContainer);
 
 			imgUpvote.on('click', function(e) {
-				console.log(e);
-				// console.log(e.parentElement.firstChild.currentSrc);
-				// var img = $(event.target).hasClass('explore-image');
+				// console.log(e);
 				var img = e.currentTarget;
 				var row = $(img).parents('.explore-image').data('row');
 				var col = $(img).parents('.explore-image').data('col');
@@ -169,7 +167,6 @@ function renderImages() {
 
 			imgDownvote.on('click', function(e) {
 				var img = e.currentTarget;
-				// var row = $(img).data('row');
 				var row = $(img).parents('.explore-image').data('row');
 				var col = $(img).parents('.explore-image').data('col');
 				// console.log(app.images[col][row]);
