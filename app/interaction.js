@@ -3,7 +3,8 @@ $(document).ready(function(){
 	//setTimeout(function() { $("body").removeClass("loading"); }, 1000);	
 	
 	var section = "home";
-	var isScrolling, isOpening = false;
+	var isScrolling = false;
+	var isOpening = false;
 	var projetouvert = false;
 	var position, op, scrollto, screencount, numprojet = 0;
 	var hgrid = 2000;
@@ -12,7 +13,7 @@ $(document).ready(function(){
 	
 	$.fn.isOnScreen = function(){
 		var element = this.get(0);
-		var bounds = element.getBoundingClientRect();
+		var bounds = this.getBoundingClientRect();
 		return bounds.top < window.innerHeight-300 && bounds.bottom > 0;
 	}
 	
@@ -444,7 +445,8 @@ $(document).ready(function(){
 
 	$(".menulogin").click(function(){
 		if (isOpening == false) {
-			isOpening = true;
+			var isOpening = true;
+			console.log("isOpening is now true");
 			closenav(); // mobile
 			if (projetouvert == true) { closeproject("profile"); }
 			if (section == "register") { 
