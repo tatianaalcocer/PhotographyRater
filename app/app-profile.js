@@ -63,16 +63,18 @@ window.onload = function(){
 
 	function displayCanvas(r, g, b){
 		var chart = new CanvasJS.Chart("settings", {
-		theme: "theme4",//theme1
-		backgroundColor: "white",
+		theme: "theme2",//theme1
+		backgroundColor: "#333",
 		title:{
-			text: "Color Preference"              
+			text: userid+ "'s color preference",
+      fontColor: '#ddd',              
 		},
+    
 		animationEnabled: true,   // change to true
 		data: [              
 			{
 				// Change type to "bar", "area", "spline", "pie",etc.
-				type: "column",
+				type: "doughnut",
 				dataPoints: [
 					{ label: "red",  y: r, color:'red'  },
 					{ label: "green", y: g, color: 'green' },
@@ -82,7 +84,8 @@ window.onload = function(){
 		]
 		});
 
-		chart.render();
+    setTimeout(function(){
+      chart.render();
+    }, 1000);
 		}
-
   }

@@ -73,7 +73,8 @@ nav .brand-logo {
 }
 
 #settings {
-	width: 500px;
+	width: 400px;
+	min-height: 400px;
 }
 .parallax-img img {
 	position: absolute;
