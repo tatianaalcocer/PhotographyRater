@@ -76,7 +76,7 @@ module.exports = function(app){
 				queryString = 
 				`UPDATE allusers
 					SET red = CASE
-					   WHEN red < 235 THEN red+20
+					   WHEN red <= 235 THEN red+20
 					   ELSE red
 					END,
 						green = CASE
@@ -94,7 +94,7 @@ module.exports = function(app){
 				queryString = 
 				`UPDATE allusers
 					SET green = CASE
-					   WHEN green < 235 THEN green+20
+					   WHEN green <= 235 THEN green+20
 					   ELSE green
 					END,
 						red = CASE
@@ -112,7 +112,7 @@ module.exports = function(app){
 				queryString = 
 				`UPDATE allusers
 					SET blue = CASE
-					   WHEN blue < 235 THEN blue+20
+					   WHEN blue <= 235 THEN blue+20
 					   ELSE blue
 					END,
 						red = CASE
@@ -174,7 +174,7 @@ module.exports = function(app){
 				queryString = 
 				`UPDATE allusers
 					SET red = CASE
-					   WHEN red >= THEN red-10
+					   WHEN red >= 10 THEN red-10
 					   ELSE red
 					END,
 						green = CASE
@@ -192,7 +192,7 @@ module.exports = function(app){
 				queryString = 
 				`UPDATE allusers
 					SET green = CASE
-					   WHEN green >=10 THEN green-10
+					   WHEN green >= 10 THEN green-10
 					   ELSE green
 					END,
 						red = CASE
