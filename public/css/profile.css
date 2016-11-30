@@ -6,10 +6,12 @@ body {
     line-height: 25px;
     background-color: black;
 }
+
 * {
 	position: relative;
 	box-sizing: border-box;
 }
+
 .container-profile {
 	min-height: 1000px;
 	color: white;
@@ -26,25 +28,27 @@ body {
     border: white solid 15px;
     padding: 10px auto;
 }
-.profile{
+
+.profile {
 	margin: 5px auto;
 }
-.container-rgb{
+
+.container-rgb {
 	width: 95%;
 	margin: 20px auto;
 
 }
-.rgb-image{
+.rgb-image {
 	margin: 10px auto;
 	border: 2px solid white;
 
 
 }
 profile-display img {
-	padding: 10px;
-}
+/*	padding: 10px;
+*/}
 
-.nav-extended{
+.nav-extended {
 	/*background-image: url(../img/nav.png) !important;*/
 	background-size: cover;
 	clear: both;
@@ -57,7 +61,7 @@ nav .brand-logo {
     width: 200px;
 }
 
-.brand-logo{
+.brand-logo {
 	width: 100px;
 }
 
@@ -76,6 +80,7 @@ nav .brand-logo {
 	width: 400px;
 	min-height: 400px;
 }
+
 .parallax-img img {
 	position: absolute;
 	background-position: 50% 210px !important;
@@ -87,7 +92,53 @@ nav .brand-logo {
 	left: 0;
 }
 
-
- .parallax-container {
+.parallax-container {
       height: 380px;
-    }
+}
+
+/* Profile Images */
+
+.profile-img {
+	display: inline-block;
+	vertical-align: top;
+	margin: 2px;
+	width: 100%;
+	-webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    line-height: 0;
+}
+
+.profile-img img {
+	width: 100%;
+	margin: 0;
+}
+
+.profile-img__overlay {
+	opacity: 0;
+ 	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity ease 0.2s;
+}
+
+.profile-img:hover .profile-img__overlay {
+    opacity: 1;
+}
+
+.profile-img__overlay__delete {
+	background-image: url("../img/delete.svg"); 
+	background-size: 100% 100%;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 15%;
+	width: 15%;
+	min-height: 20px;
+	min-width: 20px;
+	cursor: pointer;
+}
+
+

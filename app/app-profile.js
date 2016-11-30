@@ -14,13 +14,18 @@ window.onload = function(){
         var imgurl = data[i].url;
         var imgId = data[i].id;
 
-        // console.log(imgId);
+        var imgContainer = $('<div class="profile-img">');
+        var imgOverlay = $('<div class="profile-img__overlay">');
+        var imgDelete = $('<div class="profile-img__overlay__delete">');
+        imgDelete.data('id', imgId);
+        var img = $('<img />', {src : imgurl});
 
-        var img = $('<img>');
-        img.data('id', imgId);
-        img.addClass('profile-img');
-        img.attr('src', imgurl);
-        $('#profile-display').append(img);
+        imgOverlay.append(imgDelete);
+        imgContainer.append(img);
+        imgContainer.append(imgOverlay);
+
+        $('#profile-display').append(imgContainer);
+        
       }
       $('.profile-img').on('click', function(e) {
         // console.log(e);
