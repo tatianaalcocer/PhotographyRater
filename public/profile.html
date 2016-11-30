@@ -27,8 +27,6 @@
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <!-- JS files -->
     <script src="../app/app.js"></script>     
-    <script src="../app/app-profile.js"></script>     
-    <script src="../app/app-settings.js"></script>     
     </head>
 <body>
 
@@ -50,8 +48,8 @@
       </ul>
       <div class="extended">
         <ul class="tabs tabs-transparent black">
-          <li class="tab"><a href="#profile">My Photos</a></li>
-          <li class="tab"><a href="#settings">Settings</a></li>
+          <li id="profilepane" class="tab"><a href="#profile">My Photos</a></li>
+          <li id="settingspane" class="tab"><a href="#settings">Settings</a></li>
         </ul>
     </div>
   </nav>
@@ -77,20 +75,21 @@
         </div>
       </div> 
     </div>
-    </div>
+  </div>
   
-    <!-- Settings Page -->
-    <div id='settings'>
-      <div class="row">
-        <div class="col s12 m6 l12">
-          <div class="card center-align">
-              <img class="rgb-image center-align" src="img/rgbplaceholder.png">
-          </div>
+  <!-- Settings Page -->
+  <div id='settings'>
+    <div class="row">
+      <div class="col s12 m6 l12">
+        <div class="card center-align">
+            <img class="rgb-image center-align" src="img/rgbplaceholder.png">
         </div>
       </div>
-    </div> <!-- setting end -->
-  </div> <!-- end profile display -->
-</div>
+    </div>
+  </div> <!-- setting end -->
+
+<!--   </div> end profile display
+</div> -->
 
 
 
@@ -128,6 +127,10 @@
         </div>
       </div> <!-- container end -->
     </footer>
-</body>
 
+
+<script src="../app/app-settings.js"></script>     
+<script src="../app/app-profile.js"></script>     
+
+</body>
 <!-- App -->
