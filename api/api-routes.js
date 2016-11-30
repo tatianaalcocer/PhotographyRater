@@ -178,7 +178,7 @@ module.exports = function(app){
 					   ELSE red
 					END,
 						green = CASE
-					    WHEN green <= 250 10 THEN green+5
+					    WHEN green <= 250 THEN green+5
 					    ELSE green
 					END,
 						blue = CASE
