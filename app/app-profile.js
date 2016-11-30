@@ -1,4 +1,5 @@
 window.onload = function(){
+  
     var userid = localStorage.getItem('userid');
     // console.log(userid);
     var currentLocation = window.location.origin;
@@ -7,7 +8,7 @@ window.onload = function(){
 
     //AJAX call to pull the user's saved images
     $.get(URL, function(data, status){
-      console.log(status);
+      // console.log(status);
 
       for (var i = 0; i < data.length; i++){
         // console.log(data[i].url);
@@ -27,7 +28,7 @@ window.onload = function(){
         $('#profile-display').append(imgContainer);
         
       }
-      $('.profile-img').on('click', function(e) {
+      $('.profile-img__overlay__delete').on('click', function(e) {
         // console.log(e);
         var photoid = $(this).data('id');        
         console.log('id: '+ photoid);
