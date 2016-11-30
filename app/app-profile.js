@@ -61,15 +61,15 @@ window.onload = function(){
 		// console.log(data.red);
 		// console.log(data.green);
 		// console.log(data.blue);
-		red = data.red/255;
-		green = data.green/255;
-		blue = data.blue/255;
+		red = (data.red/255 * 100).toFixed(1);
+		green = (data.green/255 * 100).toFixed(1);
+		blue = (data.blue/255 * 100).toFixed(1);
 		displayCanvas(red, green, blue);
 	});
 
 	function displayCanvas(r, g, b){
 		var chart = new CanvasJS.Chart("settings", {
-		theme: "theme2",//theme1
+		theme: "theme2",
 		backgroundColor: "transparent",
 		title:{
 			text: userid+ "'s color preference",
@@ -82,9 +82,9 @@ window.onload = function(){
 				// Change type to "bar", "area", "spline", "pie",etc.
 				type: "doughnut",
 				dataPoints: [
-					{ label: "red",  y: r, color:'red'  },
-					{ label: "green", y: g, color: 'green' },
-					{ label: "blue", y: b, color: 'blue'  },
+					{ label: "Red",  y: r, color:'Red'  },
+					{ label: "Green", y: g, color: 'Green' },
+					{ label: "Blue", y: b, color: 'Blue'  },
 				]
 			}
 		]

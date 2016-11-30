@@ -52,6 +52,7 @@ profile-display img {
 	/*background-image: url(../img/nav.png) !important;*/
 	background-size: cover;
 	clear: both;
+	background-color: white;
 }
 
 nav .brand-logo {
@@ -79,6 +80,7 @@ nav .brand-logo {
 #settings {
 	width: 400px;
 	min-height: 400px;
+	margin: auto;
 }
 
 .parallax-img img {
