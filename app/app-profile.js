@@ -61,9 +61,9 @@ window.onload = function(){
 		// console.log(data.red);
 		// console.log(data.green);
 		// console.log(data.blue);
-		red = (data.red/255 * 100).toFixed(1);
-		green = (data.green/255 * 100).toFixed(1);
-		blue = (data.blue/255 * 100).toFixed(1);
+		red = (data.red);
+		green = (data.green);
+		blue = (data.blue);
 		displayCanvas(red, green, blue);
 	});
 
