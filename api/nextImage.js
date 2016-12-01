@@ -9,9 +9,9 @@ var connection = mysql.createConnection({
 	database: "heisodbf0ehdxjh4",
 });
 
-var nextImage = function(photoID) {
+var nextImage = function(photoID, userVariance) {
 
-	var variance = 30;
+	var variance = userVariance;
 
 	return new Promise(function(resolve, reject) {
 

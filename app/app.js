@@ -9,6 +9,7 @@
 		]
 	};
 
+
 //PARALLAX=======================================================================
 $(document).ready(function(){
 
@@ -66,8 +67,8 @@ $('#submitBtn').on('click', function() {
 	        return false;
 	      }
 	    }
-
 	}
+	
 })
 
 
@@ -100,11 +101,13 @@ $('.explore-button').on('click', function() {
 })
 
 // AJAX call to the API displaying next image
+//NB: var 'variance' is found in app2.js
 function getImages(id) {
+	console.log('current variance: ' + variance);
 	var currentLocation = window.location.origin;
-	var URL = currentLocation + '/api/nextImage/';
-	
-	$.get(URL + id, function(result) {
+	var URL = currentLocation + '/api/nextImage/' + id + '/' + variance;
+
+	$.get(URL, function(result) {
 		addImages(result);
 		renderImages();
 	});
@@ -149,7 +152,7 @@ function renderImages() {
 				
 				console.log(clickedImage);
 
-				getImages(photoID);
+				getImages(photoID, variance);
 
 				var dominant = clickedImage.dominant;
 				console.log('dominant: ' + dominant);

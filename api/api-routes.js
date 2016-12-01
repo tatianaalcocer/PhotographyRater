@@ -16,10 +16,12 @@ module.exports = function(app){
 	});
 
 	//route to display next nine images, when an image is clicked
-	app.get('/api/nextImage/:photoID', function(req, res) {
+	app.get('/api/nextImage/:photoID/:variance', function(req, res) {
 
 		const photoID = req.params.photoID;
-		api.nextImage(photoID)
+		const userVariance = req.params.variance;
+
+		api.nextImage(photoID, userVariance)
 		.then(function(data) {
 			res.send(data);
 		});
@@ -272,8 +274,30 @@ module.exports = function(app){
 		connection.query(queryString, function(err, data){
 			// console.log(data);
 		});
-
 		res.send();
+	});
+
+	//Route to query a user's color variance value
+	//=====================================================
+	app.get('/variance/:user', function(req, res){
+		var userId = req.params.user;
+		var queryString = `SELECT variance FROM allusers WHERE username='` + userId + `';`;
+		connection.query(queryString, function(err, data){
+			console.log(data[0].variance);
+			res.send(data[0].variance.toString());
+		});
+	});
+
+	//Route to alter a user's color variance value
+	//=====================================================	
+	app.get('/setvariance/:user/:variance', function(req, res){
+		var userId = req.params.user;
+		var varValue = req.params.variance;
+		var queryString = `UPDATE allusers SET variance=` + varValue + ` WHERE username='` + userId + `';`;
+		connection.query(queryString, function(err, data){
+			if (err) throw err;
+			console.log(data);
+		});
 	});
 
 	//Currently unused routes. may need later.
