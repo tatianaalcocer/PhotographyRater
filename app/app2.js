@@ -2,6 +2,11 @@
 var loggedIn = false;
 var userID;
 
+//Determines the range of colors in a photo. Used in getImages()/nextImage route on server
+var variance;
+
+if (!loggedIn) variance = 25;
+
 //color profile for users who aren't logged in. RGB values
 var unloggedRGB = [130, 130, 130];
 
@@ -23,15 +28,27 @@ $('#submitBtn').on('click', function(){
     			console.log(userID);
     			localStorage.setItem('userid', userID);
     			var userid = localStorage.getItem('userid');
-    			console.log(userid);
     		}
     	}
+		queryVariance(userID);
 	});
-
+	
 	$('#email').val('');
 	$('#password').val('');
 	return false;
 });	
+
+//Function to place an AJAX call for user's color variance value
+function queryVariance(userid){
+	var currentLocation = window.location.origin;
+	var URL = currentLocation + '/variance/' + userid;
+	$.get(URL, function(data){
+		variance = data;
+		// console.log('variance: ' + variance);
+		localStorage.setItem('userVariance', variance);
+	});
+}
+
 
 //REGISTER FUNCTION
 $('#registerBtn').on('click', function(){

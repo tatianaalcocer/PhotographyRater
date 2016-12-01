@@ -1,6 +1,9 @@
 var userid = localStorage.getItem('userid');
 
-//When 'Settings'
+var userVariance = localStorage.getItem('userVariance');
+
+
+//When 'Settings' tab is clicked, 'My Photos' tab becomes invisible
 $('#settingspane').on('click', function(){
   $('.container-profile').css('display', 'none');
 });
@@ -23,5 +26,9 @@ $('#resetBtn').on('click', function(){
 //Slider to set color variance
 $("#slider").on("mouseup", function() { 
 	var sliderNum = $('#slider').val();
+	var currentURL = window.location.origin;
+	var URL = currentURL + '/setvariance/' + userid + '/' + sliderNum;
+
+	$.get(URL);
 });
 
