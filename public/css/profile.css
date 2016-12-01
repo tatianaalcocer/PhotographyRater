@@ -83,6 +83,10 @@ nav .brand-logo {
 	margin: auto;
 }
 
+#settings2 {
+	background-color: black !important;
+}
+
 .parallax-img img {
 	position: absolute;
 	background-position: 50% 210px !important;

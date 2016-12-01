@@ -68,7 +68,7 @@ window.onload = function(){
 	});
 
 	function displayCanvas(r, g, b){
-		var chart = new CanvasJS.Chart("settings", {
+		var chart = new CanvasJS.Chart("settingscard", {
 		theme: "theme2",
 		backgroundColor: "transparent",
 		title:{

@@ -263,6 +263,16 @@ module.exports = function(app){
 	// });
 
 
+	//Route to reset a user's color profile
+	//=====================================================
+	app.get('/reset/:user', function(req, res){
+		var userId = req.params.user;
+		var queryString = `UPDATE allusers SET red=130, green=130, blue=130 WHERE username=` + userId;
+		connection.query(queryString, function(err, data){
+			console.log(data);
+		});
+	});
+
 	//Currently unused routes. may need later.
 	//===============================================================
 
