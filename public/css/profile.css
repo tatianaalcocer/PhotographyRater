@@ -93,6 +93,10 @@ nav .brand-logo {
 	margin: auto;
 }
 
+#slider-text {
+	color: white;
+}
+
 #resetBtn {
 	margin: auto;
 	max-width: 250px;
