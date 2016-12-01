@@ -88,10 +88,16 @@ nav .brand-logo {
 	margin: auto;
 }
 
-/*#resetBtn {
+#slider {
+	max-width: 400px;
 	margin: auto;
 }
-*/
+
+#resetBtn {
+	margin: auto;
+	max-width: 250px;
+}
+
 .parallax-img img {
 	position: absolute;
 	background-position: 50% 210px !important;
