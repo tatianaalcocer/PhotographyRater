@@ -17,7 +17,7 @@ body {
 	transition: background-color ease 0.2s;
 }
 
-nav, footer, .btn-large, .btn {
+nav, footer, .btn-large, .btn, {
 	background-color: turquoise;
     background-color: rgba(255,255,255,0.5);
     font-family: "Futura W01 Book", georgia, sans-serif;
@@ -127,6 +127,16 @@ nav .brand-logo {
 
 #slider-text {
 	color: white;
+	text-align: center;
+	font-family: "Futura W01 Book", georgia, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #FFF;
+    -webkit-font-smoothing: antialiased;
+
 }
 
 #resetBtn {
