@@ -14,3 +14,8 @@ $('#resetBtn').on('click', function(){
 	});
 	console.log(userid);
 });
+
+$("#slider").on("mouseup", function() { 
+	var sliderNum = $('#slider').val();
+	
+});
