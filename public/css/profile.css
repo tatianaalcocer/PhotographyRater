@@ -12,6 +12,59 @@ body {
 	box-sizing: border-box;
 }
 
+.nav-wrapper {
+	border-bottom-color: 2px solid snow;
+	transition: background-color ease 0.2s;
+}
+
+nav, footer, .btn-large, .btn {
+	background-color: turquoise;
+    background-color: rgba(255,255,255,0.5);
+    font-family: "Futura W01 Book", georgia, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #FFF;
+    -webkit-font-smoothing: antialiased;
+}
+
+footer p {
+	text-transform: lowercase;
+}
+
+nav .brand-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+nav img {
+	width: 100%;
+}
+
+#navbar {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	border-top: 0;
+	width: 100%;
+	height: 60px;
+}
+
+/*Window in navbar that displays the user's color profile*/
+.color-window {
+	background-color: turquoise;
+}
+
+footer.page-footer {
+    margin-top: 0px;
+    background: turquoise; !important;
+}
+
 .container-profile {
 	min-height: 1000px;
 	color: white;
@@ -64,17 +117,6 @@ nav .brand-logo {
 
 .brand-logo {
 	width: 100px;
-}
-
-#navbar {
-/*	position: fixed;
-	width: 100%;
-	left: 0;
-	top: 0;
-	z-index: 100;
-	border-top: 0;
-	width: 100%;*/
-	/*height: 60px;*/
 }
 
 #settings {
