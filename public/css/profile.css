@@ -79,14 +79,19 @@ nav .brand-logo {
 
 #settings {
 	width: 400px;
-	min-height: 400px;
+	min-height: 500px;
 	margin: auto;
 }
 
 #settings2 {
 	background-color: black !important;
+	margin: auto;
 }
 
+/*#resetBtn {
+	margin: auto;
+}
+*/
 .parallax-img img {
 	position: absolute;
 	background-position: 50% 210px !important;

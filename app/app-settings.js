@@ -8,6 +8,7 @@ $('#profilepane').on('click', function(){
 
 $('#resetBtn').on('click', function(){
 	var userid = localStorage.getItem('userid');
+	var URL = '/reset/'
 	$.get('/reset/' + userid, function(data){
 		console.log(data);
 	});
