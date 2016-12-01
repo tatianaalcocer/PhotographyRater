@@ -3,11 +3,6 @@ var userid = localStorage.getItem('userid');
 var userVariance = localStorage.getItem('userVariance');
 
 
-//When 'Settings' tab is clicked, 'My Photos' tab becomes invisible
-$('#settingspane').on('click', function(){
-  $('.container-profile').css('display', 'none');
-});
-
 //When 'My Photos' tab is clicked, the window reloads
 $('#profilepane').on('click', function(){
 	window.location.reload();
