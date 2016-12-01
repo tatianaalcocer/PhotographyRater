@@ -267,10 +267,13 @@ module.exports = function(app){
 	//=====================================================
 	app.get('/reset/:user', function(req, res){
 		var userId = req.params.user;
-		var queryString = `UPDATE allusers SET red=130, green=130, blue=130 WHERE username=` + userId;
+		console.log(userId);
+		var queryString = `UPDATE allusers SET red=130, green=130, blue=130 WHERE username='` + userId + `';`;
 		connection.query(queryString, function(err, data){
-			console.log(data);
+			// console.log(data);
 		});
+
+		res.send();
 	});
 
 	//Currently unused routes. may need later.
