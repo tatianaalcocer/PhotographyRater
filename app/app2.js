@@ -38,6 +38,7 @@ $('#submitBtn').on('click', function(){
 	return false;
 });	
 
+
 //Function to place an AJAX call for user's color variance value
 function queryVariance(userid){
 	var currentLocation = window.location.origin;

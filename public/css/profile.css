@@ -93,10 +93,6 @@ footer.page-footer {
 	border: 2px solid white;
 }
 
-profile-display img {
-/*	padding: 10px;
-*/}
-
 .nav-extended {
 	/*background-image: url(../img/nav.png) !important;*/
 	background-size: cover;
@@ -136,7 +132,6 @@ nav .brand-logo {
     text-transform: uppercase;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
-
 }
 
 #resetBtn {
