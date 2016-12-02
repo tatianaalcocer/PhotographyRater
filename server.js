@@ -1,4 +1,4 @@
-//imported modules
+//Imported modules
 //============================================================
 //npm server package
 var express = require('express');
@@ -12,6 +12,7 @@ var connection = require('./config/connection.js');
 require('dotenv').config();
 
 //Run express app
+//================================================
 var app = express();
 var PORT = process.env.PORT || 3000;
 //App listener
@@ -19,7 +20,8 @@ app.listen(PORT, function(){
 	console.log('Listening on port: ' + PORT);
 });
 
-//express middleware for parsing info for http POST requests
+//Express middleware for parsing info for http POST requests
+//================================================
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
@@ -34,7 +36,8 @@ connection.connect(function(err){
 });
 
 
-//get route for the profile page
+//Get route for the profile page
+//================================================
 app.get('/profile/:user', function(req, res){
 	var user = req.params.user;
 	var queryString = `SELECT * FROM ` + user;
@@ -43,6 +46,8 @@ app.get('/profile/:user', function(req, res){
 	});
 });
 
+//External routing files
+//================================================
 require('./api/api-routes.js')(app);
 require('./api/admin-routes.js')(app);
 require('./api/login-register-routes.js')(app);

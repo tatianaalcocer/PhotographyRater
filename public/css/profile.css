@@ -57,7 +57,7 @@ nav img {
 
 /*Window in navbar that displays the user's color profile*/
 .color-window {
-	background-color: turquoise;
+	background-color: rgba(255, 0, 0, 0.0);
 }
 
 footer.page-footer {
